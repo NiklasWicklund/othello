@@ -2,7 +2,6 @@ import React from "react";
 
 import {auth} from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { formatTime } from "./utils";
 import { signInWithPopup,GoogleAuthProvider } from "firebase/auth";
 const SaveNotification = (props: {gameToSave: any, gameIsSaved: boolean}) => {
     const [user] = useAuthState(auth);
