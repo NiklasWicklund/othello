@@ -23,7 +23,7 @@ export default function Home() {
               className="bg-green-900 text-white px-4 py-2 rounded mt-4"
             >Play Now</button>
           </Link>
-        </div>
+      </div>
     </div>
   );
 }
