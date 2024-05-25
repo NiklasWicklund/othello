@@ -3,13 +3,13 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: process.env.NEXT_PUBLIC_FB_API_KEY,
-    authDomain: process.env.NEXT_PUBLIC_FB_AUTH_DOMAIN,
-    projectId: process.env.NEXT_PUBLIC_FB_PROJECT_ID,
-    storageBucket: process.env.NEXT_PUBLIC_FB_STORAGE_BUCKET,
-    messagingSenderId: process.env.NEXT_PUBLIC_FB_MESSAGING_SENDER_ID,
-    appId: process.env.NEXT_PUBLIC_FB_APP_ID,
-    measurementId: process.env.NEXT_PUBLIC_FB_MEASUREMENT_ID
+    apiKey: "AIzaSyB2rVeSuILMSyJw5CbNeSXgSLh9w7Ni_ZY",
+    authDomain: "othello-2394a.firebaseapp.com",
+    projectId: "othello-2394a",
+    storageBucket: "othello-2394a.appspot.com",
+    messagingSenderId: "156988134707",
+    appId: "156988134707:web:b87811f11e3eccc20a1a46",
+    measurementId: "G-QPKYBSLE94"
   };
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);

@@ -82,7 +82,12 @@ const Navbar = () => {
                 </li>
                 <li>
                     <Link href="/about" onClick={() => setIsOpen(false)}>
-                    <p>About Us</p>
+                    <p>About</p>
+                    </Link>
+                </li>
+                <li>
+                    <Link href="/termsofservice" onClick={() => setIsOpen(false)}>
+                    <p>Terms Of Service</p>
                     </Link>
                 </li>
                 <hr/>
