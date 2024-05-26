@@ -139,23 +139,37 @@ const Othello = (props: any) => {
         }
         return false;
     }
-
+    const col2letter = (col: number) => {
+        return String.fromCharCode(65 + col);
+    }
     const buildBoard = () => {
         const tile_class = "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] rounded-full p-0";
         let visualBoard = (
-            <table className=" w-[min(90vw,90vh)] h-[min(90vw,90vh)] md:w-[min(56vw,56vh)] md:h-[min(56vw,56vh)] table-layout:fixed m-0 border-separate">
+            <table className=" w-[min(90vw,90vh)] h-[min(90vw,90vh)] md:w-[min(56vw,56vh)] md:h-[min(56vw,56vh)] table-layout:fixed m-2 border-separate">
                 <tbody>
                     {gameState.board.map((row, i) => (
                         <tr key={i}>
                             {row.map((cell, j) => (
                                 <td 
                                     key={j}
-                                    className={`relative ${highlightCell(i,j,cell) ? 'bg-green-500' : 'bg-green-600'}`}
+                                    className={`relative ${highlightCell(i,j,cell) ? 'bg-green-400' : 'bg-green-600'}`}
                                     onClick={() => cellPressed(i, j)}
                                 >
                                     {cell !== 0 && 
                                     <div className={`${tile_class} ${cell === 1 ? 'bg-black' : 'bg-white'}`}></div>
                                     }
+                                    {(i === 7 || j === 0) && (
+                                    <div className="">
+                                        {i === 7 && <span className="absolute bottom-[-13px] left-1/2 -translate-x-1/2 text-[10px] text-gray-800">{col2letter(j)}</span>}
+                                        {j === 0 && <span className="absolute top-1/2 left-[-8px] -translate-y-1/2 text-[10px] text-gray-800">{8-i}</span>}
+                                    </div>
+                                    )}
+                                    {(i === 0 || j === 7) && (
+                                    <div className="">
+                                        {i === 0 && <span className="absolute top-[-13px] left-1/2 -translate-x-1/2 text-[10px] text-gray-800">{col2letter(j)}</span>}
+                                        {j === 7 && <span className="absolute top-1/2 right-[-8px] -translate-y-1/2 text-[10px] text-gray-800">{8-i}</span>}
+                                    </div>
+                                    )}
                                 </td>
                             ))}
                         </tr>
@@ -169,13 +183,13 @@ const Othello = (props: any) => {
         if(moveHistory.length === 0) return 'No moves';
         const lastMove = moveHistory[moveHistory.length-1]
         if(lastMove.move !== undefined){
-            return `${lastMove.move.row+1},${lastMove.move.col+1}`;
+            return `${col2letter(lastMove.move.col)}${8-lastMove.move.row}`;
         }
         return 'Couldn\'t play';
     }
     return (
         <>
-       <div className="flex items-center justify-center flex-col z-0 mt-4 mb-2 shadow-2xl">
+       <div className="flex items-center justify-center flex-col z-0 mt-4 mb-2 ">
             <table className=" w-[min(90vw,90vh)] md:w-[min(56vw,56vh)] table-layout:fixed m-0 border-separate">
                 <thead>
                     <tr className="bg-green-600 text-white text-xs md:text-base">

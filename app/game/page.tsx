@@ -1,5 +1,5 @@
 'use client';
-import React, { use, useEffect } from "react";
+import React, { use, useEffect, useRef } from "react";
 import { useState } from "react";
 import {auth, db} from "../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
@@ -17,6 +17,8 @@ const Game = () => {
 
     const [gameToSave, setGameToSave] = useState<any>(null);
     const [gameIsSaved, setGameIsSaved] = useState<boolean>(false);
+
+    const scrollElement = useRef<HTMLDivElement>(null);
 
     const [user] = useAuthState(auth);
     const gameOver = (game: {playingAs: number, white: number, black:number,winner:number, level: number, gameLength: number}) => {
@@ -64,6 +66,12 @@ const Game = () => {
         }
     }
 
+    useEffect(() => {
+        if((gameState === 2 || gameState === 0) && scrollElement.current){
+            scrollElement.current.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+    , [gameState]);
     useEffect(() => {
         if(gameToSave !== null){
             if(user){
@@ -123,12 +131,15 @@ const Game = () => {
                     />
                 }
                 {gameToSave !== null && gameState === 2 && <div className="container mx-auto">
-                    <SaveNotification 
+                    <SaveNotification
                         gameToSave={gameToSave}
                         gameIsSaved={gameIsSaved}
                     />
+                    
                 </div>
                 }
+                <div ref={scrollElement}>
+                </div>
 
             </div>
             
