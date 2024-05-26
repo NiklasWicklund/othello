@@ -14,7 +14,7 @@ const VideoPlayer = () => {
     return (
         <div className="w-full md:max-w-[400px]">
             {hasWindow &&<ReactPlayer 
-                url={'./videos/gameplay2.mp4'} 
+                url={'./videos/gameplay3.mov'} 
                 width={'100%'}
                 height={'auto'}
                 playing={true} 

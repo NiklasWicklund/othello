@@ -98,7 +98,7 @@ const Othello = (props: any) => {
                     setTimeout(() => {
                         game.flipTiles(aiMove);
                         setGameState(game.getGameState());
-                    }, 300);
+                    }, 500);
                 }
             }, 100);
         }else if(gameState.player === props.playingAs){

@@ -9,11 +9,11 @@ export default function Home() {
   return (
     <div className="w-full flex flex-col">
       <div className="flex flex-col justify-center items-center md:w-full">
-        <div className="w-full flex items-center justify-center bg-green-900">
+        <div className="w-full flex items-center justify-center">
           <VideoPlayer />
         </div>
       </div>
-      <div className="w-full flex flex-col items-center justify-center px-10">
+      <div className="w-full flex flex-col items-center justify-center px-1 mb-2">
           <h1 className="text-4xl text-center mt-20">Welcome to Othello</h1>
           <p className="text-center mt-4">Master your Othello skills by playing against an AI with different levels of difficulty
           and track your progress by signing in through Google.
