@@ -45,7 +45,7 @@ function evaluate(gameState: GameState): number {
     let score = 0;
     for (let i = 0; i < 8; i++) {
         for (let j = 0; j < 8; j++) {
-            score += gameState.board[i][j] * weight_board[i][j] * gameState.player;
+            score += gameState.board[i][j] * weight_board[i][j];
         }
     }
     return score;
