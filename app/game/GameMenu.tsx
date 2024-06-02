@@ -29,14 +29,17 @@ const GameMenu = (props: any) => {
                     <option value={7}>Level 5 (Slow)</option>
                     <option value={9}>Level 6 (Very Slow)</option>
                 </select>
-                <label htmlFor="showPlaceable" className="text-xs mt-2">Show placeable cells</label>
-                <input
-                    id="showPlaceable"
-                    type="checkbox"
-                    className=""
-                    checked={props.showPlaceable}
-                    onChange={() => props.setShowPlaceable(!props.showPlaceable)}
-                />
+                <div>
+                    <label htmlFor="showPlaceable" className="text-xs mt-2">Show placeable cells</label>
+                    <input
+                        id="showPlaceable"
+                        type="checkbox"
+                        className="inline-block ml-2"
+                        checked={props.showPlaceable}
+                        onChange={() => props.setShowPlaceable(!props.showPlaceable)}
+                    />
+                </div>
+                <p className="text-xs text-center"> Having this checked will show you the cells where you can place your disc.</p>
             </div>
         </div>
     );
